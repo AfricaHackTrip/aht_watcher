@@ -1,0 +1,12 @@
+<h1>Videos</h1>
+
+<%= will_paginate @videos %>
+
+<p>Videos still to be watched (<%= @videos.count %>):</p>
+<ul>
+  <% @videos.each do |video| %>
+    <li><%= link_to video.filename, video %></li>
+  <% end %>
+</ul>
+
+<%= will_paginate @videos %>

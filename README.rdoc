@@ -1,0 +1,8 @@
+This is just a quick&dirty app for reviewing our video footage. Don't try this at home.
+
+Importing videos:
+
+    cd videos/
+    Dir['**/*'].each do |file|
+      Video.create!(filename: file)
+    end
