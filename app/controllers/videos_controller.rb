@@ -13,6 +13,6 @@ class VideosController < ApplicationController
     @video = Video.find params[:id]
     @video.update params[:video].permit(:description, :rating, :category)
       .merge(username: current_user)
-    redirect_to @video
+    redirect_to Video.todo.first
   end
 end
