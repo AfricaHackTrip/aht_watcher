@@ -12,3 +12,8 @@ User setup:
 Set a JSON string in ENV[USERS] with names/passwords, e.g.:
 
     {"joe":"pass","jane":"asdfgh"}
+
+Video setup:
+
+* upload videos to some place
+* set ENV[VIDEO_BASE_URL] to that place

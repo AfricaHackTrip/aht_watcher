@@ -9,7 +9,7 @@
   <%= link_to 'back', root_path %>
 </h1>
 
-<video width="864" height="480" src="<%= @video.filename %>" controls></video>
+<video width="864" height="480" src="<%= "#{ENV['VIDEO_BASE_URL']}#{@video.filename}" %>" controls></video>
 
 <%= form_for @video do |f| %>
   <p><% ['interview', 'event', 'travel', 'other'].each do |category| %>
