@@ -6,3 +6,9 @@ Importing videos:
     Dir['**/*'].each do |file|
       Video.create!(filename: file)
     end
+
+User setup:
+
+Set a JSON string in ENV[USERS] with names/passwords, e.g.:
+
+    {"joe":"pass","jane":"asdfgh"}

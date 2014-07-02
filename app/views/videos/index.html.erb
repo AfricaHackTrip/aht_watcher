@@ -10,3 +10,10 @@
 </ul>
 
 <%= will_paginate @videos %>
+
+<h2>Stats</h2>
+
+<p>Videos watched: <%= Video.done.count %></p>
+<% users.each do |user, _| %>
+  <p><%= user %>: <%= Video.done.where(username: user).count %></p>
+<% end %>

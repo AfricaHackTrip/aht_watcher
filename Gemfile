@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+# ruby '2.1.2'
 
 gem 'rails', '4.1.1'
 gem 'pg'
@@ -12,3 +12,7 @@ gem 'spring', group: :development
 gem 'puma'
 gem 'will_paginate'
 gem 'uglifier'
+
+group :development do
+  gem 'dotenv-rails'
+end
