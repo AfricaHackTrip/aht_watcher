@@ -12,7 +12,7 @@
 <video width="864" height="480" src="<%= "#{ENV['VIDEO_BASE_URL']}#{@video.filename}" %>" controls></video>
 
 <%= form_for @video do |f| %>
-  <p><% ['interview', 'event', 'travel', 'other'].each do |category| %>
+  <p><% ['interview', 'event', 'travel', 'team', 'mood', 'other'].each do |category| %>
     <label class="inline"><%= f.radio_button :category, category %> <%= category.humanize %></label>
   <% end %></p>
   <p><% Video.ratings.each do |label, value| %>
