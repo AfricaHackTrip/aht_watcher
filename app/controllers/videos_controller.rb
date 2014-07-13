@@ -18,7 +18,7 @@ class VideosController < ApplicationController
     @video = Video.find params[:id]
     @video.update params[:video].permit(:description, :rating, :category, :tag_list)
       .merge(username: current_user)
-    redirect_to Video.todo.first
+    redirect_to Video.todo.offset(rand(Video.todo.count)).first
   end
 
   protected
