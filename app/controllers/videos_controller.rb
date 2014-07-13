@@ -1,6 +1,11 @@
 class VideosController < ApplicationController
+  helper_method :tags
   def index
     @videos = Video.todo.page(params[:page])
+  end
+
+  def search
+    @videos = Video.tagged_with(params[:tag]).page(params[:page])
   end
 
   def show
@@ -11,8 +16,14 @@ class VideosController < ApplicationController
 
   def update
     @video = Video.find params[:id]
-    @video.update params[:video].permit(:description, :rating, :category)
+    @video.update params[:video].permit(:description, :rating, :category, :tag_list)
       .merge(username: current_user)
     redirect_to Video.todo.first
   end
+
+  protected
+    def tags
+      @tags ||= Video.tag_counts_on(:tags)
+    end
+
 end
