@@ -12,6 +12,7 @@ gem 'spring', group: :development
 gem 'puma'
 gem 'will_paginate'
 gem 'uglifier'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'dotenv-rails'

@@ -1,8 +1,11 @@
-<h1>Videos</h1>
+<p>
+  <%= link_to 'home', root_url %>
+  </p>
+<h1>Videos: <%= params[:tag] %> </h1>
 
 <%= will_paginate @videos %>
 
-<p>Videos still to be watched (<%= @videos.count %>):</p>
+<p>Videos (<%= @videos.count %>):</p>
 <ul>
   <% @videos.each do |video| %>
     <li><%= link_to video.filename, video %></li>
@@ -11,14 +14,8 @@
 
 <%= will_paginate @videos %>
 
-<h2>Stats</h2>
-
-<p>Videos watched: <%= Video.done.count %></p>
-<% users.each do |user, _| %>
-  <p><%= user %>: <%= Video.done.where(username: user).count %></p>
-<% end %>
-
 <h2>Tags</h2>
 <% tag_cloud(tags, %w(cloud1 cloud2 cloud3 cloud4)) do |tag, css_class| %>
   <%= link_to tag.name, tag_url(tag: tag.name), :class => css_class %>
 <% end %>
+
