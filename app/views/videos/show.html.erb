@@ -25,7 +25,8 @@
     <%= f.text_field :description, placeholder: 'Description', size: 50 %>
   </p>
   <p>
-    <%= f.text_field :tag_list, placeholder: 'Tags (comma separated)', size: 50 %>
+    <%= f.text_field :tag_list, placeholder: 'Tags (comma separated)', size: 50,
+      pattern: '(\w+,?\s*)*' %>
     <%= f.submit 'Save', class: 'submit' %>
   </p>
 <% end %>
