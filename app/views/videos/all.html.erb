@@ -1,0 +1,24 @@
+<h1>All Videos</h1>
+
+<p><%= link_to 'CSV', all_videos_path(format: :csv) %></p>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Filename</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Rating</th>
+    <th>Tags</th>
+  </tr>
+  <% @videos.each do |video| %>
+    <tr>
+      <td><%= video.id %></td>
+      <td><%= video.filename %></td>
+      <td><%= video.description %></td>
+      <td><%= video.category %></td>
+      <td><%= video.rating %></td>
+      <td><%= video.tags.map(&:name).join(', ') %></td>
+    </tr>
+  <% end %>
+</table>
