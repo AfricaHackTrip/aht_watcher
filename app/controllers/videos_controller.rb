@@ -36,7 +36,7 @@ class VideosController < ApplicationController
   protected
 
   def videos_csv(videos)
-    CSV.generate do |csv|
+    CSV.generate(col_sep: ";") do |csv|
       csv << %w(Id Filename Description Category Rating Tags)
       videos.each do |v|
         csv << [v.id, v.filename, v.description, v.category,
