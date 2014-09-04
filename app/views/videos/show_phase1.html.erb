@@ -1,0 +1,32 @@
+<h1>
+  <% if @previous %>
+    <%= link_to '&laquo;'.html_safe, @previous %>
+  <% end %>
+  <%= @video.filename %>
+  <% if @next %>
+    <%= link_to '&raquo;'.html_safe, @next %>
+  <% end %>
+  <%= link_to 'back', root_path %>
+</h1>
+
+<video width="864" height="480" src="<%= "#{ENV['VIDEO_BASE_URL']}#{@video.filename}" %>" controls></video>
+
+<%= form_for @video do |f| %>
+  <p><% ['interview', 'event', 'travel', 'team', 'mood', 'other'].each do |category| %>
+    <label class="inline"><%= f.radio_button :category, category %> <%= category.humanize %></label>
+  <% end %></p>
+  <p><% Video.ratings.each do |label, value| %>
+    <label class="inline">
+      <%= f.radio_button :rating, label %>
+      <%= label.humanize %>
+    </label>
+  <% end %></p>
+  <p>
+    <%= f.text_field :description, placeholder: 'Description', size: 50 %>
+  </p>
+  <p>
+    <%= f.text_field :tag_list, placeholder: 'Tags (comma separated)', size: 50,
+      pattern: '(\w+,?\s*)*' %>
+    <%= f.submit 'Save', class: 'submit' %>
+  </p>
+<% end %>

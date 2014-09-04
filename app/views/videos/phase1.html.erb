@@ -1,0 +1,20 @@
+<h1>Phase 1: Rating &amp; Description</h1>
+
+<%= will_paginate @videos %>
+
+<p>Videos still to be watched (<%= @videos.count %>):</p>
+<ul>
+  <% @videos.each do |video| %>
+    <li><%= link_to video.filename, show_phase1_video_path(video) %></li>
+  <% end %>
+</ul>
+
+<%= will_paginate @videos %>
+
+
+<h2>Stats</h2>
+
+<p>Videos watched: <%= Video.phase1_done.count %></p>
+<% users.each do |user, _| %>
+  <p><%= user %>: <%= Video.phase1_done.where(username: user).count %></p>
+<% end %>

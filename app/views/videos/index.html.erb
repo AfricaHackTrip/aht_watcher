@@ -2,7 +2,7 @@
 
 <p><%= link_to 'All Videos', all_videos_path %></p>
 
-<%= will_paginate @videos %>
+<h2>Phase 2: Assign to topics &amp; interview descriptions</h2>
 
 <p>Videos still to be watched (<%= @videos.count %>):</p>
 <ul>
@@ -15,10 +15,15 @@
 
 <h2>Stats</h2>
 
-<p>Videos watched: <%= Video.done.count %></p>
+<p>Videos watched: <%= Video.phase2_done.count %></p>
 <% users.each do |user, _| %>
-  <p><%= user %>: <%= Video.done.where(username: user).count %></p>
+  <p><%= user %>: <%= Video.phase2_done.where(username: user).count %></p>
 <% end %>
+
+<hr>
+
+<h2>Phase 1</h2>
+<p><%= link_to 'Phase 1', phase1_videos_path %></p>
 
 <h2>Tags</h2>
 <% tag_cloud(tags, %w(cloud1 cloud2 cloud3 cloud4)) do |tag, css_class| %>
