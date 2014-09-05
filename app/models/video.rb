@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   scope :phase1_todo, ->() { where(rating: nil) }
   scope :phase1_done, ->() { where('videos.rating IS NOT NULL') }
 
-  scope :phase2_todo, ->() { where('array_length(videos.chapters, 1) IS NULL') }
+  scope :phase2_todo, ->() { where('videos.rating >= 2 AND array_length(videos.chapters, 1) IS NULL') }
   scope :phase2_done, ->() { where('array_length(videos.chapters, 1) IS NOT NULL') }
 
   def self.chapters
